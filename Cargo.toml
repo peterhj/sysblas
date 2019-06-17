@@ -1,0 +1,5 @@
+[package]
+name = "sysblas"
+version = "0.1.0-devel"
+authors = ["Peter Jin <peterhaijin@gmail.com>"]
+license = "MIT"
