@@ -1,5 +1,10 @@
 [package]
 name = "sysblas"
-version = "0.1.0-devel"
+version = "0.1.0"
 authors = ["Peter Jin <peterhaijin@gmail.com>"]
+edition = "2018"
 license = "MIT"
+description = "Minimal CBLAS FFI bindings to system BLAS"
+documentation = "https://docs.rs/sysblas"
+readme = "README.md"
+keywords = ["blas", "cblas"]
