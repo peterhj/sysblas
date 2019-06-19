@@ -21,9 +21,17 @@ pub const CblasRight: CBLAS_SIDE = 142;
 pub type CBLAS_SIDE = u32;
 
 extern "C" {
+  pub fn cblas_sasum(
+      N: c_int,
+      X: *const f32, incX: c_int)
+      -> f32;
   pub fn cblas_saxpy(
       N: c_int,
       alpha: f32,
+      X: *const f32, incX: c_int,
+      Y: *mut f32, incY: c_int);
+  pub fn cblas_scopy(
+      N: c_int,
       X: *const f32, incX: c_int,
       Y: *mut f32, incY: c_int);
   pub fn cblas_sdot(
@@ -35,6 +43,10 @@ extern "C" {
       N: c_int,
       X: *const f32, incX: c_int)
       -> f32;
+  pub fn cblas_sscal(
+      N: c_int,
+      alpha: f32,
+      X: *mut f32, incX: c_int);
   pub fn cblas_sgemv(
       Order: CBLAS_ORDER,
       TransA: CBLAS_TRANSPOSE,
@@ -54,4 +66,49 @@ extern "C" {
       B: *const f32, ldb: c_int,
       beta: f32,
       C: *mut f32, ldc: c_int);
+  pub fn cblas_dasum(
+      N: c_int,
+      X: *const f64, incX: c_int)
+      -> f64;
+  pub fn cblas_daxpy(
+      N: c_int,
+      alpha: f64,
+      X: *const f64, incX: c_int,
+      Y: *mut f64, incY: c_int);
+  pub fn cblas_dcopy(
+      N: c_int,
+      X: *const f64, incX: c_int,
+      Y: *mut f64, incY: c_int);
+  pub fn cblas_ddot(
+      N: c_int,
+      X: *const f64, incX: c_int,
+      Y: *const f64, incY: c_int)
+      -> f64;
+  pub fn cblas_dnrm2(
+      N: c_int,
+      X: *const f64, incX: c_int)
+      -> f64;
+  pub fn cblas_dscal(
+      N: c_int,
+      alpha: f64,
+      X: *mut f64, incX: c_int);
+  pub fn cblas_dgemv(
+      Order: CBLAS_ORDER,
+      TransA: CBLAS_TRANSPOSE,
+      M: c_int, N: c_int,
+      alpha: f64,
+      A: *const f64, lda: c_int,
+      X: *const f64, incX: c_int,
+      beta: f64,
+      Y: *mut f64, incY: c_int);
+  pub fn cblas_dgemm(
+      Order: CBLAS_ORDER,
+      TransA: CBLAS_TRANSPOSE,
+      TransB: CBLAS_TRANSPOSE,
+      M: c_int, N: c_int, K: c_int,
+      alpha: f64,
+      A: *const f64, lda: c_int,
+      B: *const f64, ldb: c_int,
+      beta: f64,
+      C: *mut f64, ldc: c_int);
 }
